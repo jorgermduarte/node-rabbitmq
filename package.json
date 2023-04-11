@@ -1,14 +1,15 @@
 {
   "name": "api-typescript-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "A api template project for express with typescript.",
   "main": "index.js",
   "scripts": {
     "build": "tsc",
     "eslint:fix": "eslint src/**/*.ts --fix",
     "eslint:check": "eslint src/**/*.ts",
-    "start": "npm run build && node dist/web-api/server.js",
-    "prepare": "husky install"
+    "start": "npm run build && node dist/index.js",
+    "start:producer": "ts-node src/rabbitmq/producer.ts",
+    "start:consumer": "ts-node src/rabbitmq/consumer.ts"
   },
   "repository": {
     "type": "git",
@@ -28,12 +29,13 @@
     "@typescript-eslint/parser": "^5.17.0",
     "eslint": "^8.12.0",
     "eslint-config-google": "^0.14.0",
-    "husky": "^7.0.4",
-    "typescript": "^4.6.3"
+    "typescript": "^4.9.5"
   },
   "dependencies": {
+    "amqplib": "^0.10.3",
     "dotenv": "^16.0.2",
     "express": "^4.17.3",
-    "express-validator": "^6.14.2"
+    "express-validator": "^6.14.2",
+    "ts-node": "^10.9.1"
   }
 }
